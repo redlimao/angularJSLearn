@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.css">
+	<script src="angular.js"></script>
+	<style type="text/css">
+		.text-red{background-color: red;}
+		.text-green{background-color: green;}
+	</style>
+</head>
+<body ng-app="myCssModule">
+	<div ng-controller="cssCtrl">
+		<p class="text-{{color}}">测试css样式</p>
+		<button class="btn btn-default" ng-click="setGreen()">绿色</button>
+	</div>
+</body>
+<script>
+	var myCSSModule = angular.module('myCssModule',[]);
+	myCSSModule.controller('cssCtrl',['$scope',function($scope){
+		$scope.color = "red";
+		$scope.setGreen = function(){
+			$scope.color = 'green';
+		}
+	}])
+</script>
+</html>

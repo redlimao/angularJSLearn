@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表格</title>
+	<script src="https://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	<style type="text/css">
+		table,th,td{
+			border:1px solid #cccccc;
+			border-collapse: collapse;
+			padding: 5px;
+		}
+		table tr:nth-child(odd){
+			background-color: #f1f1f1;
+		}
+		table tr:nth-child(even){
+			background-color: #ffffff;
+		}
+	</style>
+</head>
+<body>
+	<div ng-app="myApp" ng-controller="customersCtrl">
+		<table>
+			<tr ng-repeat="x in names | orderBy:'age' ">
+				<td ng-if="$odd" style="color:red">{{$index + 1}}</td>
+				<td ng-if="$even" style="color:blue">{{$index + 1}}</td>
+				<td ng-if="$odd" style="color:red">{{x.name}}</td>
+				<td ng-if="$even" style="color:blue">{{x.name}}</td>
+				<td>{{x.age}}</td>
+				<td>{{x.address | uppercase}}</td>
+			</tr>
+		</table>
+	</div>
+<script>
+	angular.module('myApp',[]).controller('customersCtrl',function($scope){
+		$scope.names = [
+			{name:'小刘',age:'12',address:'xian'},
+			{name:'小黄',age:'32',address:'shanghai'},
+			{name:'小网',age:'22',address:'sichuan'}
+		]
+	})
+</script>
+</body>
+</html> 

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>过滤器</title>
+	<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="personCtrl">
+	<p>姓：{{name | uppercase}}</p> 大写
+	<p>姓：{{name | lowercase}}</p>	小写
+	数量：<input type="number" ng-model="quantity">
+	价格：<input type="number" ng-model="price">
+	总价：{{(quantity * price) | currency}}
+	<p>循环</p>
+	<ul>
+		<li ng-repeat="x in names | orderBy:'name' | filter:test ">
+			{{x.name + "," + x.country}}
+		</li>
+	</ul>
+	<input type="text" ng-model="test"><br>
+	搜索<input type="text" ng-model="search">
+	<ul>
+		<li ng-repeat="x in informations | filter:search">
+			{{x}}
+		</li>
+	</ul>
+<script>
+angular.module('myApp',[]).controller('personCtrl',function($scope){
+	$scope.name = "Rpf";
+	$scope.quantity = 1;
+	$scope.price = 10.1;
+	$scope.names = [
+		{name:'aioalin',country:'china'},
+		{name:'wuwu',country:'ou'},
+		{name:'xixi',country:'rr'}
+	]
+	$scope.informations = ['房贷首付','特浮动','官方'];
+});
+</script>
+</body>
+</html>

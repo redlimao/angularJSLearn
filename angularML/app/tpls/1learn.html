@@ -1,0 +1,38 @@
+
+	<div ng-controller="CommonController">
+		<div ng-controller="Controller1">
+			<p>{{greeting.text}},Angular</p>
+			<button ng-click="test1()">test1</button>
+		</div>
+		<div ng-controller="Controller2">
+			<p>{{greeting.text}},Angular</p>
+			<button ng-click="test2()">test2</button>
+		</div>
+		<button ng-click="commonFn()">通用</button>
+	</div>
+
+<!-- //使用controller的注意点
+//1、不要试图去复用Controller，一个控制器一般负责一块视图
+//2、不要在Controller中操作DOM
+//3、不要在Controller里面做数据格式化
+//4、不要在Controller里面做数据过滤
+//5、Controller是不会相互调用的 -->
+	
+<!-- 	//AngularJS 核心特性
+	//1、MVC 
+	//Model数据模型层 Controller业务逻辑和控制逻辑 View视图层
+	//2、模块化module
+	//3、指令系统
+	//4、双向数据绑定
+	//grunt   bower  http server
+	//单元测试runner karma
+	//单元测试工具 jasmine
+
+	//为什么需要mvc？ 模块化和复用
+	//代码规模越来越大，需要切分职责
+	//为了复用，很多逻辑一样
+	//为了后期维护方便，修改一块功能不影响其他部分
+
+	//controller的实现方式
+	//控制器和视图双向交互以及和数据模型双向交互
+	//控制器指向多个视图 -->

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS 应用</title>
+	<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+	<p>AngularJS模块 Module 定义了AngularJS应用</p>
+	<p>AngularJS控制器 Controller 用于控制AngularJS应用</p>
+	<p>ng-app指令定义了应用,ng-controller</p>
+	<div ng-app="myApp" ng-controller="myCtrl">
+		姓：<input type="text" ng-model="firstName"><br>
+		名：<input type="text" ng-model="lastName"><br>
+		<br>
+		姓名：{{firstName +" " + lastName}}
+	</div>
+<script>
+	var app = angular.module('myApp',[]);//AngularJS模块
+	app.controller('myCtrl',function($scope){
+		$scope.firstName = "tian";
+		$scope.lastName = "pingfan";
+	});
+</script>
+</body>
+</html>

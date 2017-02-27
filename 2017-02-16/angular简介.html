@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+<div ng-app="" ng-init="firstName='tian'">
+	<p>名字：<input type="text" ng-model="name"></p>
+	<h1>Hello {{name}}</h1>
+	<p ng-bind="firstName"></p>
+</div>
+<script type="text/javascript">
+	//ng-app 指令定义一个AngularJS应用程序
+	//ng-model 指令把元素值绑定到应用程序
+	//ng-bind 指令把应用数据绑定到HTML视图
+	//ng-init 指令初始化Angular 应用程序变量
+</script>
+</body>
+</html>

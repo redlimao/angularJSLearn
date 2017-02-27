@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS</title>
+	<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script> 
+</head>
+<body>
+<!-- 	<div ng-app="myApp" ng-controller="myCtrl">
+		名：<input type="text" ng-model="firstName"><br>
+		性：<input type="text" ng-model="lastName"><br>
+		年龄：<input type="text" ng-model="age"><br>
+		姓名<p ng-bind="firstName + '' + lastName"></p>{{firstName + "" + lastName}} <br>
+		具体年龄：{{age}}岁
+	</div> -->
+	<div data-ng-app="" data-ng-init="names=['A','B','C']">
+		<p>使用ng-repeat来循环数组</p>
+		<ul>
+			<li data-ng-repeat="x in names">
+				{{x}}
+			</li>
+		</ul>
+	</div>
+	<div ng-app="myApp" ng-init="names=[
+		{name:'A',county:'AA'},
+		{name:'B',county:'BB'},
+		{name:'C',county:'CC'}
+	]">
+		<p>循环对象</p>
+		<ul>
+			<li ng-repeat="x in names">
+				{{x.name + ',' + x.county}}
+			</li>
+		</ul>
+		<p>自定义的指令</p>
+		<runoob-directive></runoob-directive>
+		<show></show>
+	</div>
+	
+
+
+<script>
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope){
+		$scope.firstName = 'Tian';
+		$scope.lastName = 'PingFan';
+		$scope.age = 22;
+	});
+
+	app.directive('runoobDirective',function(){
+		return{
+			template:'<h1>自定义指令！</h1>'
+		};
+	});
+	app.directive('show',function(){
+		return{
+			template:'<p>销售的价格</p>'
+		};
+	});
+	//ng-app 指令定义了一个AngularJS应用
+	//ng-model 指令把元素值绑定到应用程序
+	//ng-bind 指令把应用程序数据绑定到HTML试图
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.css">
+	<script src="angular.js"></script>
+	<style type="text/css">
+		.error{background-color: red;}
+		.warning{background-color: green;}
+	</style>
+</head>
+<body ng-app="MyCSSModule">
+	<div ng-controller="HeaderController">
+		<div ng-class="{error: isError,warning:isWarning}">{{messageText}}</div>
+		<button ng-click="showError()">Error</button>
+		<button ng-click="showWarning()">Warning</button>	
+	</div>
+<script>
+	var myCssModule = angular.module('MyCSSModule',[]);
+	myCssModule.controller('HeaderController',['$scope',function($scope){
+		$scope.isError = false;
+		$scope.isWarning = false;
+		$scope.showError = function(){
+			$scope.messageText = "This is an error";
+			$scope.isError = true;
+			$scope.isWarning = false;
+		};
+		$scope.showWarning = function(){
+			$scope.messageText = 'This is a warning';
+			$scope.isError = false;
+			$scope.isWarning = true;
+		}
+	}])
+</script>
+</body>
+</html>

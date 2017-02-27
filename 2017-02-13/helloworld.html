@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>
+</head>
+<body>
+	Hello {{'world'}}!
+	<p>ng-app告诉AngularJS处理整个HTML页并引导应用</p>
+	你的名字：<input type="text" ng-model="yourname" placeholder="World">
+	<hr>
+	Hello {{yourname || 'World'}}!
+	<p>以上AngularJS应用程序的三个组成部分，并解释它们如何映射到模型-视图-控制器设计模式</p>
+	<strong>模板 Templates</strong>
+	<strong>应用程序逻辑和行为</strong>
+	<strong>数据模板</strong>
+</body>
+</html>

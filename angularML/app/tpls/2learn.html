@@ -1,0 +1,46 @@
+
+	<p>利用directive来实现view的复用</p>
+	<div ng-controller="myCtrl">
+		{{name}}
+	</div>
+	<div ng-controller="ListCtrl">
+		<ul>
+			<li ng-repeat="x in names">
+				{{x}} form {{department}}
+			</li>
+		</ul>
+	</div>
+	<div ng-controller="EventController">
+		点击次数：{{count}}
+		<ul>
+			<li ng-repeat="i in [1]" ng-controller="EventController">
+				<button ng-click="$emit('MyEvent')">$emit('MyEvent')</button>
+				<button ng-click="$broadcast('MyEvent')">$broadcast('MyEvent')</button>
+				<br>
+				点击次数：{{count}}
+				<ul>
+					<li ng-repeat="item in [1,2]" ng-controller="EventController">
+						点击次数：{{count}}
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+
+
+<!-- 	//$scope
+	//1、$scope是一个对象
+	//2、$scope提供了一些工具方法$watch()/$apply()
+	//3、$scope是表达式的执行环境
+	//4、$scope是一个树型结构，与DOM标签平行
+	//5、$scope是可以继承父$scope上的属性和方法
+	//6、有一个根$scope对象
+	//7、$scope可以传播事件
+	//8、$scope不仅是MVC的基础，也是实现双向绑定的基础
+
+	//$scope的生命周期
+	//Creation创建
+	//Watcher registration 注册监控
+	//Model mutation 检测模型的变化
+	//mutation observation 
+	//Scope destruction -->
